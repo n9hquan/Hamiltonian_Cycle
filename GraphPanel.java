@@ -16,11 +16,12 @@ public class GraphPanel extends JPanel implements MouseListener, MouseMotionList
         this.addMouseMotionListener(this);
         setPreferredSize(new Dimension(800, 600));
 
-        // Create and add the button to the panel
+        // Add button for checking hamiltonian cyle
         JButton checkHamiltonButton = new JButton("Check Hamiltonian Cycle");
         checkHamiltonButton.addActionListener(e -> checkHamiltonianCycle());
         add(checkHamiltonButton);
 
+        // Add button for instant deletion
         JButton clearButton = new JButton("Clear Drawing");
         clearButton.addActionListener(e -> clearDrawing());
         add(clearButton);
@@ -46,6 +47,7 @@ public class GraphPanel extends JPanel implements MouseListener, MouseMotionList
     }
 
     private void checkHamiltonianCycle() {
+        // Check if the user input is a graph or not
         if (nodes.size() < 3 || edges.isEmpty()) {
             JOptionPane.showMessageDialog(this, "Please complete the graph before checking for a Hamiltonian cycle.");
             return;
@@ -58,6 +60,7 @@ public class GraphPanel extends JPanel implements MouseListener, MouseMotionList
         }
         graph = new Graph(listOfEdges);
         String hamiltonCycle = graph.getHamiltonCycle();
+        // No cycle found
         if (hamiltonCycle.equals("Not possible")) {
             JOptionPane.showMessageDialog(this, "No Hamiltonian cycle found.");
         } else {
@@ -69,11 +72,12 @@ public class GraphPanel extends JPanel implements MouseListener, MouseMotionList
                 cycleLabels.append("-");
             }
             cycleLabels.deleteCharAt(cycleLabels.length() - 1); // Remove the last "-"
+            // Show information how the Hamiltonian Cycle is traverse
             JOptionPane.showMessageDialog(this, "Hamiltonian cycle: " + cycleLabels.toString());
         }
     }
     
-
+    // Delete drawing
     private void clearDrawing() {
         nodes.clear();
         edges.clear();
@@ -115,6 +119,7 @@ public class GraphPanel extends JPanel implements MouseListener, MouseMotionList
                     selectedNode = foundNode;
                 }
             } else if (!deletingNode) {
+                //Node labeling
                 String label = JOptionPane.showInputDialog(this, "Enter label for the node:");
                 if (label != null && !label.isEmpty()) {
                     Node newNode = new Node(e.getX(), e.getY(), 20, label);
@@ -188,6 +193,7 @@ public class GraphPanel extends JPanel implements MouseListener, MouseMotionList
             this.end = end;
         }
 
+        // Draw an edge from one outer node circumference to another
         public void draw(Graphics g) {
             g.setColor(Color.BLACK);
             // Calculate the coordinates for the edges to start and end at the circumference of the nodes
