@@ -1,6 +1,6 @@
 # Learning Hamiltonian Cycles through drawing!
 
-Welcome to Hamiltonian Cycle Detector, an interactive GUI designed to help you get to know about the Hamiltonian Cycles concept! 
+Welcome to Hamiltonian Cycle Detector, an interactive GUI designed to help you get to know about the Hamiltonian Cycles concept! <br />
 This is a project we built for our final project in Discrete Mathematics class. 
 
 ## Getting Started
@@ -19,5 +19,5 @@ Simply download all the files and run GraphPanel.java in your IDE to run the pro
 - You can quickly delete all nodes by pressing "Clear Drawing".
 
 ## Authors
-Le Cao Nhat Phuong - @PL2035
+Le Cao Nhat Phuong - @PL2035 <br />
 Nguyen Chinh Quan - @n9hquan
