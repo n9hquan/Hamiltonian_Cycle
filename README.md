@@ -1,7 +1,7 @@
 # Learning Hamiltonian Cycles through drawing!
 
-Welcome to Hamiltonian Cycle Detector, an interactive GUI designed to help you get to know about the Hamiltonian Cycles concept! This is a project we built for our final project in 
-Discrete Mathematics class. 
+Welcome to Hamiltonian Cycle Detector, an interactive GUI designed to help you get to know about the Hamiltonian Cycles concept! 
+This is a project we built for our final project in Discrete Mathematics class. 
 
 ## Getting Started
 
