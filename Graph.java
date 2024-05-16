@@ -45,17 +45,14 @@ public class Graph{
 
     public String getHamiltonCycle(){
         List<Integer> visited = new ArrayList<>();
-        int orig = 10000000;
         for (Integer integer : adjacList.keySet()) {
-            if (integer < orig) {
-                orig = integer;
+            visited.add(integer);
+            boolean isAvail = getHamiltonCycle_(visited, integer, integer);
+            if (isAvail) {
+                String res = visited.stream().map(n -> String.valueOf(n)).collect(Collectors.joining("-"));
+                return res;
             }
-        }
-        visited.add(orig);
-        boolean isAvail = getHamiltonCycle_(visited, orig, orig);
-        String res = visited.stream().map(n -> String.valueOf(n)).collect(Collectors.joining("-"));
-        if (isAvail) {
-            return res;
+            visited.remove(visited.indexOf(integer));
         }
         return "Not possible";
     }
@@ -76,6 +73,7 @@ public class Graph{
                 if (res) {
                     return res;
                 }
+                visited.remove(visited.indexOf(element));
             }
         }
         return false;
